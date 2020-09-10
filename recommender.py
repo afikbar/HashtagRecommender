@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 from HashtagRecommenderModel import HashtagRecommender, join_file
 
 MYDIR = os.path.dirname(__file__)
-UPLOAD_FOLDER = os.path.join(MYDIR, 'static', 'uploads', '')
+UPLOAD_FOLDER = os.path.join('static', 'uploads', '')
 
 app = Flask(__name__)
 app.secret_key = "secret key"
@@ -69,11 +69,10 @@ def read_hashtag():
         save_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         hashtags = hr_model.predict_hashtags(save_path, num_neighbors=20, num_predict=10, selected_hashtags=input_hashtags).values[0]
         flash(f"Recommended Hashtags: {', '.join(map(lambda x: '#'+x, hashtags))}", 'success')
-        # flash(f'Read hashtag: {hashtag}', 'success')
         return redirect(request.environ['HTTP_REFERER'])
 
 
 if __name__ == '__main__':
-    join_file(source_dir=os.path.join(MYDIR,'Model_Files'), dest_file=os.path.join(MYDIR,"model.pkl"))
-    hr_model = pickle.load(open(os.path.join(MYDIR,'model.pkl'), 'rb'))
+    join_file(source_dir='Model_Files', dest_file="model.pkl")
+    hr_model = pickle.load(open('model.pkl', 'rb'))
     app.run()
