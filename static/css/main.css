@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #444;
+}
+
+/*
+   * Formatting the header area
+   */
+header {
+  background-color: #DFB887;
+  height: 35px;
+  width: 100%;
+  opacity: .9;
+  margin-bottom: 10px;
+}
+
+header h1.logo {
+  margin: 0;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  float: left;
+}
+
+header h1.logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+.upload-form {
+  text-align: center;
+  padding: 10px;
+}
+
+div.page-content {
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.mdl-cell {
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+div.flashes {
+  color: rgb(255, 255, 255);
+}
+
+.flashes.error {
+  background-color: rgb(255, 82, 82);
+}
+
+.flashes.success {
+  background-color: rgb(0,150,136);
+}
+
+h2 {
+  font-size: 3em;
+  margin-top: 40px;
+  text-align: center;
+  letter-spacing: -2px;
+}
+
+h3 {
+  font-size: 1.7em;
+  font-weight: 100;
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: -1px;
+  color: #999;
+}
+
+.menu {
+  float: right;
+  margin-top: 8px;
+}
+
+.menu li {
+  display: inline;
+}
+
+.menu li+li {
+  margin-left: 35px;
+}
+
+.menu li a {
+  color: #444;
+  text-decoration: none;
+}

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="dl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col flashes {{category}}">
+                <p>{{ message }}</p>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="mdl-layout-spacer"></div>
+</div>
+{% if image_name %}
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--3-col">
+        <img src="static/uploads/{{ image_name }}" style='height: 100%; width: 100%; object-fit: contain'>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+</div>
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--2-col">
+        <form class="upload-form" name="upload" method="post" action="{{ url_for('read_hashtag', image_name=image_name) }}">
+            <label>Hashtag:</label>
+            <input name="hashtag" id="input_hashtag" type="text" size="10">
+            <br><br>
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Recommend!</button>
+        </form>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+</div>
+{% endif %}
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--2-col">
+        <form class="upload-form" name="upload" method="post" action="{{ url_for('upload_file') }}"
+            enctype="multipart/form-data">
+            <input name="file" id="file-picker" type="file" class="hidden"
+                onchange="document.forms.upload.submit()">
+            <label for="file-picker"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Upload Image</label>
+        </form>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+</div>
+{% endblock %}
