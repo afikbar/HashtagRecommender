@@ -15,6 +15,8 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 ALLOWED_EXTENSIONS = {'jpg', 'png', 'jpeg'}
 
+join_file(source_dir='Model_Files', dest_file="model.pkl")
+hr_model = pickle.load(open('model.pkl', 'rb'))
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -73,6 +75,4 @@ def read_hashtag():
 
 
 if __name__ == '__main__':
-    join_file(source_dir='Model_Files', dest_file="model.pkl")
-    hr_model = pickle.load(open('model.pkl', 'rb'))
     app.run()
