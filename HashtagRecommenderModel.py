@@ -130,6 +130,12 @@ class HashtagRecommender:
         
         # load full data
         self.load_full_data()
+
+    def __getstate__(self):
+        return self.__dict__
+
+    def __setstate__(self, d):
+        self.__dict__ = d
             
     def generate_hashtags_indicators(self):
         hashtags_indicators = np.zeros((self.data_size, self.num_hashtags), dtype=np.int32)

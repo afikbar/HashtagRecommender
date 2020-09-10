@@ -19,7 +19,6 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
     
-
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -58,7 +57,6 @@ def upload_file():
             flash('Something went wrong, please try again', 'error')
             print(f"Error: {e}")
         return redirect(request.url)
-
 
 
 @app.route('/read_hashtag', methods=['POST'])
