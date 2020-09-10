@@ -1,0 +1,49 @@
+= Instagram Hashtag Recommender
+Ofir Danan; Shahar Rotem; Afik Bar
+//settings
+:idprefix:
+:idseparator: -
+:source-language: ruby
+:language: {source-language}
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+To access the application, visit https://hashtag-recommender.herokuapp.com/[Home]. +
+To upload new image, navigate to https://hashtag-recommender.herokuapp.com/upload[Upload].
+
+== Technologies
+* _Apache Spark_(TM) for Alternative Least Seqaures computation.
+* _TensorFlow_(TM) for visual features extractions (MobileNetV2).
+
+
+== Requirements
+
+=== Web App
+The web-app is currently deployed https://hashtag-recommender.herokuapp.com/[here] (using Heroku).
+
+to manually deploy, Python 3.5+ is required, please install neccesary packages using: `pip install -r requirement.txt`.
+
+then simply run: `python recommender.py`.
+
+=== Processing Framework
+Processing is accomplished by using Spark 2.4.5 (PySpark).
+
+
+== Usage
+Navigate to `127.0.0.1:5000` (locally).
+
+
+
+
+
+
+
+
