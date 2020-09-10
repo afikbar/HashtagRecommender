@@ -72,12 +72,8 @@ def read_hashtag():
         # flash(f'Read hashtag: {hashtag}', 'success')
         return redirect(request.environ['HTTP_REFERER'])
 
-# @app.route('/display/<filename>')
-# def display_image(filename):    
-# 	return redirect(url_for('static', filename='uploads/'+filename).replace('%5c','/'), code=301)
-
 
 if __name__ == '__main__':
-    join_file(source_dir='Model_Files', dest_file="model.pkl")
-    hr_model = pickle.load(open('model.pkl', 'rb'))
+    join_file(source_dir=os.path.join(MYDIR,'Model_Files'), dest_file=os.path.join(MYDIR,"model.pkl"))
+    hr_model = pickle.load(open(os.path.join(MYDIR,'model.pkl'), 'rb'))
     app.run()
