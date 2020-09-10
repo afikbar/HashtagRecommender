@@ -54,7 +54,7 @@ def join_file(source_dir, dest_file):
  
     # Go through each portion one by one
     
-    for f in os.listdir(source_dir):
+    for f in sorted(os.listdir(source_dir)):
          
         # Assemble the full path to the file
         path = os.path.join(source_dir, f)
