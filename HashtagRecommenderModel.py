@@ -252,10 +252,9 @@ class HashtagRecommender:
 
     def evaluate(self, hashtags_predictions):
         mrr = 0
-        num_predict = len(hashtags_predictions.iloc[0])
         hashtags_true = self.full_data.hashtags.loc[hashtags_predictions.index]
-        for image_name in hashtags_predictions.index:
-            rr = sum([(hashtag_prediction in hashtags_true.loc[image_name]) for hashtag_prediction in hashtags_predictions.loc[image_name]]) / num_predict
+        for i, image_name in enumerate(hashtags_predictions.index):
+            rr = 1 / (min([((hashtag_prediction not in hashtags_true.loc[image_name]), i) for i, hashtag_prediction in enumerate(hashtags_predictions.loc[image_name])])[1] + 1)
             mrr += rr
         mrr /= hashtags_predictions.shape[0]
         return mrr

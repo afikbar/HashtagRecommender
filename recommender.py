@@ -5,7 +5,8 @@ from flask.templating import render_template
 from werkzeug.utils import secure_filename
 from HashtagRecommenderModel import HashtagRecommender, join_file
 
-UPLOAD_FOLDER = 'static/uploads/'
+MYDIR = os.path.dirname(__file__)
+UPLOAD_FOLDER = os.path.join(MYDIR, 'static', 'uploads', '')
 
 app = Flask(__name__)
 app.secret_key = "secret key"
