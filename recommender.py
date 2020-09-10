@@ -79,4 +79,4 @@ def read_hashtag():
 if __name__ == '__main__':
     join_file(source_dir='Model_Files', dest_file="model.pkl")
     hr_model = pickle.load(open('model.pkl', 'rb'))
-    app.run(debug=True)
+    app.run()

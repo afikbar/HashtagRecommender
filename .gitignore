@@ -126,3 +126,5 @@ dmypy.json
 data/
 model.pkl
 
+
+static/uploads/
