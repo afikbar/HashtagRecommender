@@ -15,8 +15,7 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 ALLOWED_EXTENSIONS = {'jpg', 'png', 'jpeg'}
 
-join_file(source_dir='Model_Files', dest_file="model.pkl")
-hr_model = pickle.load(open('model.pkl', 'rb'))
+hr_model = None
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -29,6 +28,9 @@ def home():
 
 @app.route('/upload')
 def upload_form():
+    if hr_model is None:
+        join_file(source_dir='Model_Files', dest_file="model.pkl")
+        hr_model = pickle.load(open('model.pkl', 'rb'))
     image_name = request.args.get('image_name', default=False)
     return render_template('upload.html', image_name=image_name)
 
